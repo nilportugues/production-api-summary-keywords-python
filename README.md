@@ -1,5 +1,3 @@
-FOR PYTHON 2.7
-
 # 1. Installation and running
  
 ## 1.1. Development
@@ -64,12 +62,6 @@ Finally use the docker container.
 
  - **Swagger UI**: http://127.0.0.1:8080/api/
  - **Swagger.json**: http://127.0.0.1:8080/api/swagger.json
- 
-## 2.2 Methods
-
- - [GET] http://127.0.0.1:8080/api/text/languages
- - [POST] http://127.0.0.1:8080/api/text/detect
- - [POST] http://127.0.0.1:8080/api/text/translate
  
 # 3. Framework:
 

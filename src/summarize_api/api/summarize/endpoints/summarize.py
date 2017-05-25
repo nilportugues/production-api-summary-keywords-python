@@ -8,7 +8,7 @@ from ...restplus import api
 from ...summarize.serializers import *
 
 log = logging.getLogger(__name__)
-ns = api.namespace('text')
+ns = api.namespace('')
 
 
 @ns.route('/summarize')

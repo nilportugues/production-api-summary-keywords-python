@@ -22,6 +22,4 @@ class LanguagesServices:
             'swedish'
         ]
 
-        return True, {
-            "languages": data
-        }
+        return data

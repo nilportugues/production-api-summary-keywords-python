@@ -12,7 +12,7 @@ swagger_docs = '/'
 if not SWAGGER_UI_ENABLED:
     swagger_docs = False
 
-api = Api(version='1.0', title='Translation API', doc=swagger_docs, catch_all_404s=True)
+api = Api(version='1.0', title='Summarize API', doc=swagger_docs, catch_all_404s=True)
 
 
 @api.errorhandler

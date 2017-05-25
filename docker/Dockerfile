@@ -6,15 +6,20 @@ RUN apt-get update && apt-get upgrade -y
 # Install nginx
 RUN apt-get install -y nginx
 
-## Python 3 installation and required packages
+## Python 2.7 installation and required packages
 RUN apt-get install libterm-readline-perl-perl apt-utils -y
-RUN apt-get install -y python3 python3-pip python3-virtualenv mlocate
-RUN pip3 install --upgrade pip
-RUN pip3 install flask uwsgi
+RUN apt-get install -y python python-pip python3-virtualenv mlocate
+
+## For this project DEPENDENCIES
+RUN apt-get install -y cython libblas-dev liblapack-dev gfortran python-numpy python-scipy \
+    python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
+
+RUN pip install --upgrade pip
+RUN pip install flask uwsgi
 
 
-COPY ./translate_api-0.1.tar.gz /tmp/build.tar.gz
-RUN pip3 install /tmp/build.tar.gz --upgrade
+COPY ./summarize_api-0.1.tar.gz /tmp/build.tar.gz
+RUN pip install /tmp/build.tar.gz --upgrade
 
 ## Copy files for uwsgi
 RUN mkdir -p /opt/uwsgi/

@@ -2,7 +2,6 @@
 
 pip install virtualenv
 
-
 pyvenv venv
 source venv/bin/activate
 python src/summarize_api/setup.py install

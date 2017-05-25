@@ -4,7 +4,7 @@ import logging
 from flask import request
 from flask_restplus import Resource
 
-from ..services.summarize import SummarizeService
+from ..services.keywords import KeywordsService
 from ...restplus import api
 from ...summarize.serializers import *
 
@@ -12,11 +12,11 @@ log = logging.getLogger(__name__)
 ns = api.namespace('text')
 
 
-@ns.route('/summarize')
-class SummarizeResource(Resource):
+@ns.route('/keywords')
+class KeywordsResource(Resource):
 
-    @api.expect(summarize_text_request)
-    @api.response(200, 'Success', summarized_text_response)
+    @api.expect(keywords_text_request)
+    @api.response(200, 'Success', keywords_text_response)
     @api.response(400, 'Bad Request', vnd_error_schema)
     @api.response(500, 'Internal Server Error', vnd_error_schema)
     def post(self):
@@ -26,7 +26,7 @@ class SummarizeResource(Resource):
         if not request.json:
             return self._build_bad_json_response()
 
-        service = SummarizeService()
+        service = KeywordsService()
         success, response = service.execute(request.json)
 
         if not success:
@@ -53,20 +53,6 @@ class SummarizeResource(Resource):
         }
         return response, 400
 
-    @staticmethod
-    def _could_not_summarize():
-        response = {
-            "_embedded": {
-                "errors": [
-                    {
-                        "message": "Provided text could not be summarized.",
-                        "path": "/text"
-                    }
-                ]
-            },
-            "total": 1
-        }
-        return response, 400
 
 
     @staticmethod

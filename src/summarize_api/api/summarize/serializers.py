@@ -1,6 +1,8 @@
+# coding=utf-8
 from flask_restplus import fields
 
 from api.restplus import api
+from .services.languages import LanguagesServices
 
 vnd_error = api.model('api_error', {
     'message': fields.String(required=True, description='Error description'),
@@ -15,25 +17,46 @@ vnd_error_schema = api.model('vnd_error_schema', {
     '_embedded': fields.Nested(vnd_errors, required=True)
 })
 
-# ----------------------------
+# ------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 
-detect_text_request = api.model('detect_text_request', {
-    'text': fields.String(description='Text to detect'),
+
+summarize_text_request = api.model('Summarize text', {
+    'from_language': fields.String(description='Language'),
+    'text': fields.String(description='Text to Summarize'),
+    'words': fields.Integer(description='Number of words to summarize', required=False),
 })
 
-detect_text_response = api.model('detect_text_response', {
-    'language': fields.String(description='Guessed language'),
-    'confidence': fields.Float(description="Degree of confindence")
+summarized_text_response = api.model('Summarized text', {
+    'summary': fields.String(description='Summarized text'),
+
 })
 
-summarize_text_request = api.model('Translate text', {
-    'from_language': fields.String(description='Translate to'),
-    'to_language': fields.String(description='Translate to'),
-    'text': fields.String(description='Text to translate'),
+# ------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
+
+keywords_text_request = api.model('Keywords', {
+    'from_language': fields.String(description='Language'),
+    'text': fields.String(description='Text to extract keywords from'),
+    'keywords': fields.Integer(description='Number of keywords'),
 })
 
-summarized_text_response = api.model('Translated text', {
-    'original': fields.String(description='Original text'),
-    'translated': fields.String(description='Translated text'),
 
+keywords_text_response = api.model('List of keywords', {
+    'keywords': fields.List(fields.String(), description='List of keywords'),
+
+})
+
+# ------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
+
+languages_service = LanguagesServices()
+languages_success_response = api.model('language_list', {
+    'languages': fields.Raw(languages_service.list(), required=True)
 })

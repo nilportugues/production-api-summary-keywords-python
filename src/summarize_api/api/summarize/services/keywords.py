@@ -2,16 +2,16 @@
 from ..infrastructure.sumarizer_service import SumarizerProvider
 
 FIELD_TEXT = 'text'
-FIELD_WORDS = 'words'
+FIELD_WORDS = 'keywords'
 FIELD_FROM_LANGUAGE = 'from_language'
 
 ERROR_FIELD_FROM_LANGUAGE = 'Missing `from_language` field in the request\'s body.'
 ERROR_FIELD_TEXT = 'Missing `text` field in request\'s body.'
 ERROR_FIELD_FROM_LANGUAGE_NOT_SUPPORTED = 'Provided `from_language` value `{language}` is not supported.'
-ERROR_FIELD_WORDS = 'Provided `words` value `{words}` must be 1 or more.'
+ERROR_FIELD_WORDS = 'Provided `keywords` value `{words}` must be 1 or more.'
 
 
-class SummarizeService:
+class KeywordsService:
     def __init__(self):
         self.service = SumarizerProvider()
 
@@ -27,12 +27,12 @@ class SummarizeService:
         text = dto.get(FIELD_TEXT)
         words = dto.get(FIELD_WORDS, None)
 
-        summary = self.service.extract_summary(text, language=from_language, words=words)
+        keywords = self.service.extract_keywords(text, language=from_language, words=words)
 
-        if summary == "":
+        if keywords == "":
             return True, None
 
-        return True, {"summary":  summary}
+        return True, {"keywords":  keywords}
 
     def _validate_dto(self, dto):
         errors = {}
@@ -48,15 +48,15 @@ class SummarizeService:
         if not FIELD_TEXT in dto:
             errors[FIELD_TEXT] = ERROR_FIELD_TEXT
 
-        words = dto.get(FIELD_WORDS, None)
-        if words is not None:
-            if not self._is_valid_words(words):
-                errors[FIELD_WORDS] = ERROR_FIELD_WORDS.replace('{words}', words)
+        keywords = dto.get(FIELD_WORDS, None)
+        if keywords is not None:
+            if not self._is_valid_words(keywords):
+                errors[FIELD_WORDS] = ERROR_FIELD_WORDS.replace('{keywords}', keywords)
 
         return errors
 
     def _is_valid_language(self, language):
         return self.service.is_supported(language)
 
-    def _is_valid_words(self, words):
-        return words > 0
+    def _is_valid_words(self, amount):
+        return amount > 0

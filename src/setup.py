@@ -9,15 +9,16 @@ setup(
     author_email='contact@nilportugues.com',
     url='http://nilportugues.com/',
     license='BSD',
-    packages=find_packages(exclude=('tests', 'docs', 'venv')),
+    packages=find_packages(exclude=('tests', 'docs', 'venv'), include='summarize_api'),
     install_requires=[
         'virtualenv',
         'flask-restplus==0.9.2',
         'flask-restful-swagger-2==0.35',
         'Flask-SQLAlchemy==2.1',
-        'summa==0.0.7'
+        'summa==0.0.7',
+        'networkx==1.11'
     ],
-    include_package_data=True, 
+    include_package_data=True,
 )
 
 # EOF

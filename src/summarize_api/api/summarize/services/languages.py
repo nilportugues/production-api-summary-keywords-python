@@ -1,25 +1,10 @@
+# coding=utf-8
+from ..infrastructure.sumarizer_service import SumarizerProvider
+
+
 class LanguagesServices:
     def __init__(self):
-        pass
+        self.service = SumarizerProvider()
 
-    @staticmethod
-    def execute():
-        data = [
-            'danish',
-            'dutch',
-            'english',
-            'finnish',
-            'french',
-            'german',
-            'hungarian',
-            'italian',
-            'norwegian',
-            'porter',
-            'portuguese',
-            'romanian',
-            'russian',
-            'spanish',
-            'swedish'
-        ]
-
-        return data
+    def list(self):
+        return self.service.language_list.keys()

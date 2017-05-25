@@ -1,11 +1,15 @@
+FOR PYTHON 2.7
+
 # 1. Installation and running
  
 ## 1.1. Development
 
-Meet the requirements: 
+Meet the requirements for this project: 
 
 ```bash
-sudo apt-get install -y python python-pip python-virtualenv 
+sudo apt-get install -y python python-pip python-virtualenv \
+    cython libblas-dev liblapack-dev gfortran python-numpy python-scipy \
+    python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
 ```
 
 Run the following script to get you started in no time:

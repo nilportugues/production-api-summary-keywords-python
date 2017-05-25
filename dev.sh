@@ -5,6 +5,6 @@ pip install virtualenv
 
 pyvenv venv
 source venv/bin/activate
-pip install -r src/translate_api/requirements.txt
+python src/summarize_api/setup.py install
 export PYTHONPATH=.:$PYTHONPATH
-python src/translate_api/application_dev.py
+python src/summarize_api/application_dev.py

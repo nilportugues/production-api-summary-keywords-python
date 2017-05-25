@@ -1,16 +1,18 @@
 import logging
 
 from flask_restplus import Resource
-from googletrans.constants import LANGUAGES
+
+from ..services.languages import LanguagesServices
 from ...restplus import api
-from ...translation.serializers import *
+from ...summarize.serializers import *
 
 log = logging.getLogger(__name__)
 ns = api.namespace('text')
 
+languages = LanguagesServices.execute()
 
 language_list = api.model('language_list', {
-    'languages': fields.Raw(LANGUAGES, required=True)
+    'languages': fields.Raw(languages, required=True)
 })
 
 
@@ -21,5 +23,5 @@ class LanguagesResource(Resource):
         """
         Returns a key-value list with all the supported languages.
         """
-        return {'languages': LANGUAGES}, 200
+        return {'languages': languages}, 200
 

@@ -4,9 +4,8 @@ from flask import Flask, Blueprint
 from flask_restplus import Swagger
 import settings
 from api.restplus import api
-from api.translation.endpoints.languages import ns as languages_namespace
-from api.translation.endpoints.detection import ns as text_detection_namespace
-from api.translation.endpoints.translation import ns as text_translation_namespace
+from api.summarize.endpoints.languages import ns as languages_namespace
+from api.summarize.endpoints.summarize import ns as summarize_namespace
 
 app = Flask(__name__)
 Swagger(app)
@@ -18,8 +17,7 @@ blueprint = Blueprint('api', __name__, url_prefix='/api')
 api.init_app(blueprint)
 
 # ADD ENDPOINTS
-api.add_namespace(text_translation_namespace)
-api.add_namespace(text_detection_namespace)
+api.add_namespace(summarize_namespace)
 api.add_namespace(languages_namespace)
 # END ENDPOINTS
 

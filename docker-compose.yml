@@ -1,18 +1,18 @@
 version: '2'
 
 services:
-  translate_api:
+  summarize_api:
     build: ./docker
-    container_name: translate_api
+    container_name: summarize_api
     volumes_from:
-      - translate_api_build
+      - summarize_api_build
     ports:
       - "80:80"
       - "8080:8080"
       - "5000:5000"
       - "9191:9191"
 
-  translate_api_build:
+  summarize_api_build:
     image: tianon/true
     volumes:
-      - ./docker/translate_api-0.1.tar.gz:/tmp/build.tar.gz
+      - ./docker/summarize_api-0.1.tar.gz:/tmp/build.tar.gz

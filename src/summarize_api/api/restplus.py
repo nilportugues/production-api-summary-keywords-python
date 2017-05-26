@@ -14,7 +14,6 @@ if not SWAGGER_UI_ENABLED:
 
 api = Api(version='1.0', title='Summarize API', doc=swagger_docs, catch_all_404s=True)
 
-
 @api.errorhandler
 def default_error_handler(e):
     message = 'An unhandled exception occurred.'

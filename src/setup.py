@@ -11,7 +11,7 @@ setup(
     author_email='contact@nilportugues.com',
     url='http://nilportugues.com/',
     license='BSD',
-    packages=find_packages(exclude=('tests', 'docs', 'venv'), include='summarize_api'),
+    packages=find_packages(exclude=('tests', 'docs', 'venv')),
     install_requires=[
         'virtualenv',
         'flask-restplus==0.9.2',
@@ -23,9 +23,14 @@ setup(
         'hunspell'
     ],
     include_package_data=True,
+    package_data={
+        'static': ['*.dic', '*.aff'],
+    },
+
 )
 
 nltk.download('all-nltk')
 nltk.download('all')
 
 # EOF
+

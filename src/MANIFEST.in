@@ -1,0 +1,2 @@
+include summarize_api/api/summarize/infrastructure/hunspell-dictionaries/*/*.dic
+include summarize_api/api/summarize/infrastructure/hunspell-dictionaries/*/*.aff

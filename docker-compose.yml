@@ -16,3 +16,4 @@ services:
     image: tianon/true
     volumes:
       - ./docker/summarize_api-0.1.tar.gz:/tmp/build.tar.gz
+      - ./docker/uwsgi/uwsgi.ini:/opt/uwsgi/uwsgi.ini

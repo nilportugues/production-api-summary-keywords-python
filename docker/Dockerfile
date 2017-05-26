@@ -15,6 +15,8 @@ RUN apt-get install -y cython libblas-dev liblapack-dev gfortran python-numpy py
     python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose\
     hunspell python-hunspell libhunspell-dev
 
+RUN pip install -U nltk numpy
+
 RUN pip install --upgrade pip
 RUN pip install flask uwsgi
 

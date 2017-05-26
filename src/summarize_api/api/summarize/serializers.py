@@ -57,6 +57,6 @@ keywords_text_response = api.model('List of keywords', {
 # ------------------------------------------------------------------------------------
 
 languages_service = LanguagesServices()
-languages_success_response = api.model('language_list', {
+languages_success_response = api.model('Language list', {
     'languages': fields.Raw(languages_service.list(), required=True)
 })

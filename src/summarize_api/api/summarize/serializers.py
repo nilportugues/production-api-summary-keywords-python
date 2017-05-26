@@ -1,7 +1,7 @@
 # coding=utf-8
 from flask_restplus import fields
 
-from api.restplus import api
+from ..restplus import api
 from .services.languages import LanguagesServices
 
 vnd_error = api.model('api_error', {
@@ -31,7 +31,6 @@ summarize_text_request = api.model('Summarize text', {
 
 summarized_text_response = api.model('Summarized text', {
     'summary': fields.String(description='Summarized text'),
-
 })
 
 # ------------------------------------------------------------------------------------
@@ -57,6 +56,7 @@ keywords_text_response = api.model('List of keywords', {
 # ------------------------------------------------------------------------------------
 
 languages_service = LanguagesServices()
+list = languages_service.list()
 languages_success_response = api.model('Language list', {
-    'languages': fields.Raw(languages_service.list(), required=True)
+    'languages': fields.Raw(list, required=True)
 })

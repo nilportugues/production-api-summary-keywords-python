@@ -6,7 +6,7 @@ from flask_restplus import Resource
 
 from ..services.summarize import SummarizeService
 from ...restplus import api
-from ...summarize.serializers import *
+from ...summarize.serializers import summarize_text_request, summarized_text_response, vnd_error_schema
 
 log = logging.getLogger(__name__)
 ns = api.namespace('text')

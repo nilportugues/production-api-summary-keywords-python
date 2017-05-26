@@ -4,7 +4,7 @@ from flask_restplus import Api
 
 from werkzeug.exceptions import BadRequest
 
-from ..settings import SWAGGER_UI_ENABLED, FLASK_DEBUG
+from settings import SWAGGER_UI_ENABLED, FLASK_DEBUG
 
 log = logging.getLogger(__name__)
 

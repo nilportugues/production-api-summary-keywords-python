@@ -128,7 +128,6 @@ class SumarizerProvider:
         stemmer = None
 
         dictionary = self.dictionary_list.get(language)
-        print dictionary
         if dictionary is not None and dictionary.get('dic') is not None:
             stemmer = HunSpell(dictionary.get('dic'), dictionary.get('aff'))
 

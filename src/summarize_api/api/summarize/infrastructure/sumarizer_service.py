@@ -1,8 +1,9 @@
 # coding=utf-8
-import summa
-import nltk
 import os
 from hunspell import HunSpell
+
+import nltk
+import summa
 
 
 class SumarizerProvider:

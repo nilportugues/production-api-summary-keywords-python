@@ -29,9 +29,6 @@ class KeywordsService:
 
         keywords = self.service.extract_keywords(text, language=from_language, words=words)
 
-        if keywords == "":
-            return True, None
-
         return True, {"keywords":  keywords}
 
     def _validate_dto(self, dto):

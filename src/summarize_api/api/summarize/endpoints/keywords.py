@@ -32,9 +32,6 @@ class KeywordsResource(Resource):
         if not success:
             return self._build_bad_request_response(response)
 
-        if response is None:
-            return self._could_not_summarize()
-
         return response, 200
 
 

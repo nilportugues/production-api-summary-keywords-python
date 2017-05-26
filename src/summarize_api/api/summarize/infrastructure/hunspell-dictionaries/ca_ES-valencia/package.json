@@ -1,0 +1,30 @@
+{
+  "name": "dictionary-ca-es-valencia",
+  "version": "1.2.1",
+  "description": "Catalan (Spain, Valencia) spelling dictionary in UTF-8",
+  "license": "LGPL-2.0",
+  "keywords": [
+    "spelling",
+    "myspell",
+    "hunspell",
+    "dictionary",
+    "catalan",
+    "spain",
+    "valencia"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/dictionaries"
+  },
+  "bugs": "https://github.com/wooorm/dictionaries/issues",
+  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "contributors": [
+    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "index.aff",
+    "index.dic"
+  ]
+}

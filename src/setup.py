@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import setup, find_packages
+import nltk
 
 setup(
     name='summarize_api',
@@ -16,9 +17,14 @@ setup(
         'flask-restful-swagger-2==0.35',
         'Flask-SQLAlchemy==2.1',
         'summa==0.0.7',
-        'networkx==1.11'
+        'networkx==1.11',
+        'nltk',
+        'hunspell'
     ],
     include_package_data=True,
 )
+
+nltk.download('all-nltk')
+nltk.download('all')
 
 # EOF

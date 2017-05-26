@@ -1,0 +1,30 @@
+{
+  "name": "dictionary-en-za",
+  "version": "1.2.1",
+  "description": "English (South Africa) spelling dictionary in UTF-8",
+  "license": "LGPL-2.1",
+  "keywords": [
+    "spelling",
+    "myspell",
+    "hunspell",
+    "dictionary",
+    "english",
+    "south",
+    "africa"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/dictionaries"
+  },
+  "bugs": "https://github.com/wooorm/dictionaries/issues",
+  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "contributors": [
+    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "index.aff",
+    "index.dic"
+  ]
+}

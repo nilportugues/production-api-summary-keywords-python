@@ -12,7 +12,8 @@ RUN apt-get install -y python python-pip python3-virtualenv mlocate
 
 ## For this project DEPENDENCIES
 RUN apt-get install -y cython libblas-dev liblapack-dev gfortran python-numpy python-scipy \
-    python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
+    python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose\
+    hunspell python-hunspell libhunspell-dev
 
 RUN pip install --upgrade pip
 RUN pip install flask uwsgi

@@ -7,7 +7,8 @@ Meet the requirements for this project:
 ```bash
 sudo apt-get install -y python python-pip python-virtualenv \
     cython libblas-dev liblapack-dev gfortran python-numpy python-scipy \
-    python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
+    python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose \
+    hunspell python-hunspell libhunspell-dev
 ```
 
 Run the following script to get you started in no time:

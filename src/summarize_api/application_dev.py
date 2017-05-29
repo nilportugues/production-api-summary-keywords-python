@@ -2,4 +2,4 @@
 import application
 
 app = application.app
-app.run(port=8080)
+app.run()
